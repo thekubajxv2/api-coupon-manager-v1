@@ -1,24 +1,15 @@
 {
   "builds": [
     {
-      "cmd": "python manage.py collectstatic --noinput",
-      "use": "static"
-    },
-    {
-      "cmd": "python manage.py runserver",
-      "env": {
-        "PORT": "$PORT"
-      }
+      "src": "vercel_app/wsgi.py",
+      "use": "@ardnt/vercel-python-wsgi",
+      "config": { "maxLambdaSize": "15mb" }
     }
   ],
   "routes": [
     {
-      "src": "/static/*",
-      "dest": "/static"
-    },
-    {
-      "src": "/*",
-      "dest": "wsgi.py"
+      "src": "/(.*)",
+      "dest": "vercel_app/wsgi.py"
     }
   ]
 }
