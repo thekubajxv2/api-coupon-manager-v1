@@ -1,0 +1,24 @@
+{
+  "builds": [
+    {
+      "cmd": "python manage.py collectstatic --noinput",
+      "use": "static"
+    },
+    {
+      "cmd": "python manage.py runserver",
+      "env": {
+        "PORT": "$PORT"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/*",
+      "dest": "/static"
+    },
+    {
+      "src": "/*",
+      "dest": "wsgi.py"
+    }
+  ]
+}
