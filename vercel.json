@@ -3,7 +3,7 @@
   "builds": [
     {
         "src": "requirements.txt",
-        "use": "@vercel/python@3.9"
+        "use": "@vercel/python@3.10"
       },
     {
       "src": "coupon_manager/wsgi.py",
