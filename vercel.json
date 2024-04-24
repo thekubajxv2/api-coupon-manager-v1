@@ -4,14 +4,14 @@
     {
       "src": "coupon_manager/wsgi.py",
       "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-      "cmd": "python -m pip install -r requirements.txt",
-      "use": "@vercel/python"
+      "src": "./build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles_build"
+      }
     }
   ],
   "routes": [
