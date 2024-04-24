@@ -2,10 +2,6 @@
   "version": 2,
   "builds": [
     {
-        "src": "requirements.txt",
-        "use": "@vercel/python@3.10"
-      },
-    {
       "src": "coupon_manager/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
@@ -27,5 +23,6 @@
       "src": "/(.*)",
       "dest": "coupon_manager/wsgi.py"
     }
-  ]
+  ],
+  "outputDirectory": "staticfiles_build"
 }
